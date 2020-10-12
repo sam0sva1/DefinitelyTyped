@@ -7,6 +7,12 @@
 
 import * as React from 'react';
 
+export interface Hooks {
+    updateHeight(): void;
+}
+
+export type OnActionTriggerCallback = (hooks: Hooks) => void;
+
 export type OnChangeIndexCallback = (index: number, indexLatest: number) => void;
 
 export type OnTransitionEndCallback = () => void;
@@ -24,6 +30,7 @@ export interface SpringConfig {
 }
 
 export interface SwipeableViewsProps extends React.HTMLProps<HTMLDivElement> {
+    action?: OnActionTriggerCallback;
     animateHeight?: boolean;
     animateTransitions?: boolean;
     axis?: AxisType;
